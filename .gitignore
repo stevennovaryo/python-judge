@@ -1,0 +1,47 @@
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+# Ignore all backups
+*~
+
+# Ignore VSCode config directory
+.vscode/
+
+# Ignore all testcases
+tc/
+tests/
+input/
+output/
+in/
+out/
+cases/
+*.in
+*.out
+
+# Ignore .DS_Store from mac
+.DS_Store
+
+# Ignore .exe from Windows
+*.exe
+
+*.psd
+# *.gif
+
+# Ignore class files from java
+*.class
+
+# Ignore zip files
+*.zip
+
+# Ignore cpp files
+*.cpp
+
+# misc
+.cph
+__pycache__

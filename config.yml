@@ -1,0 +1,4 @@
+compile_flag: "g++ -O2 -std=c++17"
+time_limit: 1000            # CPU TIME
+user_time_limit: 1000       # real time
+scorer_time_limit: 10000
