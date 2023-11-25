@@ -10,7 +10,10 @@ from .verdict import Verdict
 def compile():
   flag = Config.COMPILE_FLAG.split()
   Logger().print('compiling..')
-  subprocess.run([*flag, '-o', Config.CON_SOLUTION_PATH, Config.CON_CPP_PATH])
+  
+  # dont compile if given an executable
+  if Config.EXECUTABLE_PATH == None:
+    subprocess.run([*flag, '-o', Config.CON_SOLUTION_PATH, Config.CON_CPP_PATH])
   subprocess.run([*flag, '-o', Config.SCORER_PATH, Config.SCORER_CPP_PATH])
   Logger().print('compile success\n')
 

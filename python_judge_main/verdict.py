@@ -36,9 +36,13 @@ class Verdict(Enum):
     VerdictCounter().verdict[verdict.value] += 1
 
   def get_solution_path_string():
+    solution_path = Config.CON_CPP_PATH
+    if Config.EXECUTABLE_PATH != None:
+      solution_path = Config.EXECUTABLE_PATH
+    
     if sys.stdout.isatty():
-      return f'\033[33;1m\"{Config.CON_CPP_PATH}\"\033[0m'
-    return f'\"{Config.CON_CPP_PATH}\"'
+      return f'\033[33;1m\"{solution_path}\"\033[0m'
+    return f'\"{solution_path}\"'
   
   def print_verdict():
     Logger().print('='*50)
