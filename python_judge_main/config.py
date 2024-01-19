@@ -13,12 +13,13 @@ parser.add_argument("--executable", help="path to executable solution, will over
 parser.add_argument("--solution", help="solution file path", default="./solution.cpp", required=False)
 parser.add_argument("--scorer", help="scorer file path", default="./helper/scorer.cpp", required=False)
 parser.add_argument("--test-dir", help="directory containing test cases", default="./tests", required=False)
+parser.add_argument("--config", help="config file path", default="./config.yml", required=False)
 
 # Parse the command-line arguments
 args = parser.parse_args()
 
 # Parsing yaml config
-with open('./config.yml', 'r') as file:
+with open(args.config, 'r') as file:
   judge_config = yaml.safe_load(file)
 
 class Config:
