@@ -2,6 +2,12 @@ import argparse
 import yaml
 import os
 
+from . import utils
+
+# Example: Go to parent directory until "python-judge" is found
+MODULE_NAME = 'python-judge'
+ROOT_DIRECTORY = utils.get_module_root_directory(MODULE_NAME)
+
 # Create the argument parser
 parser = argparse.ArgumentParser()
 
@@ -10,10 +16,10 @@ parser.add_argument('-v', '--verbose', help='will also print error message if rt
 parser.add_argument('-b', '--brief', help='only print the results', action="store_true")
 parser.add_argument("--beta-mode", help="beta mode, uses cpu time to measure time limit", action="store_true")
 parser.add_argument("--executable", help="path to executable solution, will override solution", default=None, required=False)
-parser.add_argument("--solution", help="solution file path", default="./solution.cpp", required=False)
-parser.add_argument("--scorer", help="scorer file path", default="./helper/scorer.cpp", required=False)
-parser.add_argument("--test-dir", help="directory containing test cases", default="./tests", required=False)
-parser.add_argument("--config", help="config file path", default="./config.yml", required=False)
+parser.add_argument("--solution", help="solution file path", default=f"{ROOT_DIRECTORY}/solution.cpp", required=False)
+parser.add_argument("--scorer", help="scorer file path", default=f"{ROOT_DIRECTORY}/helper/scorer.cpp", required=False)
+parser.add_argument("--test-dir", help="directory containing test cases", default=f"{ROOT_DIRECTORY}/tests", required=False)
+parser.add_argument("--config", help="config file path", default=f"{ROOT_DIRECTORY}/config.yml", required=False)
 
 # Parse the command-line arguments
 args = parser.parse_args()
@@ -35,9 +41,9 @@ class Config:
   CON_CPP_PATH = args.solution
   SCORER_CPP_PATH = args.scorer
 
-  CON_OUTPUT_PATH = "./temp/contestant"
-  CON_SOLUTION_PATH = "./temp/solution.exe"
-  SCORER_PATH = "./temp/scorer.exe"
+  CON_OUTPUT_PATH = f"{ROOT_DIRECTORY}/temp/contestant"
+  CON_SOLUTION_PATH = f"{ROOT_DIRECTORY}/temp/solution.exe"
+  SCORER_PATH = f"{ROOT_DIRECTORY}/temp/scorer.exe"
 
   if EXECUTABLE_PATH != None:
     CON_SOLUTION_PATH = EXECUTABLE_PATH

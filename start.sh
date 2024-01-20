@@ -10,6 +10,5 @@ for var in "$@"; do
 done
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-cd $SCRIPT_DIR
 
-python main.py ${param[*]}
+python $SCRIPT_DIR/main.py ${param[*]}
